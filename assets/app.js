@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menu) {
     menu.addEventListener("click", () => {
       const isOpen = links.classList.toggle("open");
+      /* Swap hamburger ↔ close icon */
+      menu.innerHTML = isOpen ? "&#x2715;" : "&#9776;";
       /* Force solid navbar state when mobile menu is open */
       if (isOpen) {
         nav.classList.add("menu-open");
@@ -22,7 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
     a.addEventListener("click", () => {
       links && links.classList.remove("open");
       nav && nav.classList.remove("menu-open");
+      if (menu) menu.innerHTML = "&#9776;";
     });
+  });
+
+  /* close nav when clicking outside */
+  document.addEventListener("click", (e) => {
+    if (links && links.classList.contains("open") && !nav.contains(e.target)) {
+      links.classList.remove("open");
+      nav.classList.remove("menu-open");
+      if (menu) menu.innerHTML = "&#9776;";
+    }
   });
 
   /* ── scroll-aware nav ── */
