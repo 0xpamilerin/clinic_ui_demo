@@ -98,3 +98,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+// --- Modal logic ---
+window.openResearchModal = function(title, meta, text, badge) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalMeta').innerText = meta;
+  document.getElementById('modalText').innerText = text;
+  document.getElementById('modalBadge').innerText = badge;
+  document.getElementById('researchModal').classList.add('active');
+};
+
+window.closeResearchModal = function(event) {
+  if (event && event.target.closest('.modal-content') && !event.target.classList.contains('modal-close')) {
+    return;
+  }
+  document.getElementById('researchModal').classList.remove('active');
+};

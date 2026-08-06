@@ -1,4 +1,4 @@
-# JadeRoot Clinic — Dummy Multipage UI
+# Robboss Clinic — Dummy Multipage UI
 
 Static client-demo UI for a traditional wellness / acupuncture clinic.
 
